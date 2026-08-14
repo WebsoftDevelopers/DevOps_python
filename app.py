@@ -17,7 +17,8 @@ def generate_ai_response(prompt: str) -> None:
     
     # Generate content using Gemini 2.5 Flash
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model=os.getenv("AI_MODEL"),
+        api_key=os.getenv("AI_API_KEY"),
         contents=prompt,
         config=config,
     )
